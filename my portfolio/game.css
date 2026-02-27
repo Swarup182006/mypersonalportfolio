@@ -1,0 +1,339 @@
+/* Game-Specific Styles */
+
+/* Enhanced Player Animations */
+#player.running .player-sprite {
+    animation: runAnimation 0.5s steps(3) infinite;
+}
+
+#player.jumping .player-sprite {
+    animation: jumpAnimation 0.5s ease-out;
+}
+
+@keyframes runAnimation {
+    0% { transform: translateX(0) translateY(0); }
+    33% { transform: translateX(-2px) translateY(-2px); }
+    66% { transform: translateX(2px) translateY(-1px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+@keyframes jumpAnimation {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+/* Enhanced Platform Animations */
+.platform.bouncy {
+    transition: transform 0.2s;
+}
+
+.platform.bouncy:hover {
+    transform: translateY(-5px);
+}
+
+/* Coin Animations */
+.coin {
+    animation: coinFloat 2s ease-in-out infinite;
+}
+
+@keyframes coinFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(180deg); }
+}
+
+.coin.collected {
+    animation: coinCollect 0.5s ease-out forwards;
+}
+
+@keyframes coinCollect {
+    0% { transform: scale(1) rotate(0deg); opacity: 1; }
+    100% { transform: scale(0) rotate(360deg); opacity: 0; }
+}
+
+/* Block Hit Animations */
+.question-block.hit {
+    animation: blockHit 0.3s ease-out;
+}
+
+@keyframes blockHit {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* Skill Block Animations */
+.skill-block.active {
+    animation: skillReveal 0.5s ease-out;
+    background: #2ECC71;
+    transform: scale(1.2);
+}
+
+@keyframes skillReveal {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Project Platform Animations */
+.project-platform.active {
+    animation: platformBounce 0.3s ease-out;
+    background: #E67E22;
+}
+
+@keyframes platformBounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Modal Animations */
+.modal-content {
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    0% { transform: translateY(-50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Trophy Animations */
+.trophy-item.active {
+    animation: trophyShine 1s ease-out;
+    background: #F39C12;
+    box-shadow: 0 10px 0 #D35400, 0 0 20px rgba(241, 196, 15, 0.5);
+}
+
+@keyframes trophyShine {
+    0% { transform: scale(1) rotate(0deg); box-shadow: 0 6px 0 #D4AF37; }
+    50% { transform: scale(1.1) rotate(5deg); box-shadow: 0 10px 0 #D35400; }
+    100% { transform: scale(1) rotate(0deg); box-shadow: 0 6px 0 #D4AF37; }
+}
+
+/* Level Transition Effects */
+.level.transitioning {
+    animation: levelTransition 0.5s ease-in-out;
+}
+
+@keyframes levelTransition {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Background Parallax Effects */
+.bg-1 {
+    background-position: 0 0;
+    animation: parallax1 60s linear infinite;
+}
+
+.bg-2 {
+    background-position: 0 0;
+    animation: parallax2 40s linear infinite;
+}
+
+.bg-3 {
+    background-position: 0 0;
+    animation: parallax3 20s linear infinite;
+}
+
+@keyframes parallax1 {
+    0% { background-position: 0 0; }
+    100% { background-position: -1000px 0; }
+}
+
+@keyframes parallax2 {
+    0% { background-position: 0 0; }
+    100% { background-position: -500px 0; }
+}
+
+@keyframes parallax3 {
+    0% { background-position: 0 0; }
+    100% { background-position: -250px 0; }
+}
+
+/* HUD Animations */
+.score.gained {
+    animation: scorePop 0.3s ease-out;
+    color: #F1C40F;
+}
+
+@keyframes scorePop {
+    0% { transform: scale(1); color: #2C3E50; }
+    50% { transform: scale(1.2); color: #F1C40F; }
+    100% { transform: scale(1); color: #2C3E50; }
+}
+
+.lives.losing {
+    animation: lifeLose 0.5s ease-out;
+    color: #E74C3C;
+}
+
+@keyframes lifeLose {
+    0% { transform: scale(1); color: #2C3E50; }
+    50% { transform: scale(0.8); color: #E74C3C; }
+    100% { transform: scale(1); color: #2C3E50; }
+}
+
+/* Particle Effects */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #FFD700;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particleFloat 1s ease-out forwards;
+}
+
+@keyframes particleFloat {
+    0% { transform: translateY(0) scale(0); opacity: 1; }
+    100% { transform: translateY(-50px) scale(1); opacity: 0; }
+}
+
+/* Screen Shake Effect */
+.screen.shaking {
+    animation: screenShake 0.5s ease-in-out;
+}
+
+@keyframes screenShake {
+    0%, 100% { transform: translate(0, 0); }
+    10%, 30%, 50%, 70%, 90% { transform: translate(-5px, -5px); }
+    20%, 40%, 60%, 80% { transform: translate(5px, 5px); }
+}
+
+/* Win Screen Effects */
+#win-screen .final-stats {
+    animation: statsReveal 1s ease-out;
+}
+
+@keyframes statsReveal {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Game Over Effects */
+#game-over-screen h1 {
+    animation: gameOverShake 0.5s ease-in-out infinite;
+}
+
+@keyframes gameOverShake {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-5px, -5px); }
+    75% { transform: translate(5px, 5px); }
+}
+
+/* Responsive Game Adjustments */
+@media (max-width: 768px) {
+    #player {
+        width: 30px;
+        height: 45px;
+    }
+    
+    .player-sprite {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .platform {
+        height: 15px;
+    }
+    
+    .question-block, .skill-block {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .coin {
+        width: 15px;
+        height: 15px;
+    }
+    
+    .level-title {
+        font-size: 1.5rem;
+        padding: 5px 15px;
+    }
+    
+    .hud {
+        font-size: 0.6rem;
+        padding: 10px;
+    }
+    
+    .pixel-btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .pixel-btn {
+        border: 3px solid #000;
+        background: #000;
+        color: #fff;
+    }
+    
+    .platform {
+        border: 3px solid #000;
+        background: #000;
+    }
+    
+    .question-block {
+        border: 3px solid #000;
+        background: #000;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #2C3E50;
+    }
+    
+    .bg-1 {
+        background: linear-gradient(to bottom, #2C3E50 0%, #34495E 100%);
+    }
+    
+    .hud {
+        color: #ECF0F1;
+    }
+    
+    .level-title {
+        color: #ECF0F1;
+        text-shadow: 2px 2px 0 #000;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .screen {
+        position: relative;
+        opacity: 1;
+        pointer-events: auto;
+    }
+    
+    #game-container {
+        display: none;
+    }
+    
+    .hud, .player, .platform, .coin, .question-block {
+        display: none;
+    }
+    
+    .level {
+        display: block;
+        opacity: 1;
+        position: relative;
+    }
+}
